@@ -4,11 +4,50 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+            {{ encore_entry_link_tags('home') }}
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    {% block header %}
+        <div class="header container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="#">
+                    <img src="http://lorempixel.com/400/200/" width="50" height="50" alt="">
+                    Watch
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navigation">
+                    <ul class="navbar-nav mr-auto ml-5">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Films</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Serials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Premiers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Cartoons</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 mr-lg-5 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                    {% include 'home/_profile.html.twig' %}
+                </div>
+            </nav>
+        </div>
+    {% endblock %}
+    {% block body %}{% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('home') }}
+    {% endblock %}
     </body>
 </html>
