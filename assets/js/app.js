@@ -6,7 +6,10 @@
  */
 
 // any CSS you require will output into a single css file (app.css in this case)
-require('../css/app.css');
+require('../css/bootstrap.min.css');
+require('../css/home.css');
+require('./lib/jquery.min');
+require('./lib/bootstrap.bundle.min');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');
