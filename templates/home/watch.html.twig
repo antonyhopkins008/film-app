@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Film{% endblock %}
+
+{% block content %}
+    <div class="row multiple-items mb-5">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="http://lorempixel.com/250/400" alt="Film" class="img-thumbnail">
+            </div>
+            <div class="col-md-9">
+                <h3 class="card-title">{{ film.title|e }}</h3>
+                <div class="row">
+                    <div class="col-md-2">Release year</div>
+                    <div class="col-md-10"><a href="">{{ film.releaseYear }}</a></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Producer</div>
+                    <div class="col-md-10">
+                        <a href="">{{ film.producer.firstName ~ ' ' ~ film.producer.lastName|e }}</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Cast</div>
+                    <div class="col-md-10">
+                        {% for actor in film.actors %}
+                            <a href="#">{{ actor.firstName ~ ' ' ~ actor.lastName|e }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-2">Genre</div>
+                    <div class="col-md-10">
+                        {% for genre in film.genres %}
+                            <a href="#">{{ genre.name|e }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-md-2">Description</div>
+                    <div class="col-md-10">
+                        {{ film.description }}
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn-lg btn-success">Watch now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

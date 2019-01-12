@@ -1,10 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Welcome page{% endblock %}
+{% block title %}Films{% endblock %}
 
-{#<div class="container">#}
-    {#{% block body %}#}
-    {#{% include 'navigation.html.twig' %}#}
-{#{% endblock %}#}
-{#</div>#}
+    {% block content %}
+        <h2>New</h2>
+        <div class="row multiple-items">
+            {% for film in films %}
+                <a class="col-md-2 mb-5" href="{{ path('watch', {'id': film.id}) }}">
+                    <img src="http://lorempixel.com/200/400" alt="Film" class="img-thumbnail">
+                    <span class="card-title">{{ film.title }}</span>
+                </a>
+            {% endfor %}
+        </div>
+
+        <h2>Popular</h2>
+        <div class="row">
+            {% for film in films %}
+                <a class="col-md-2 mb-5" href="{{ path('watch', {'id': film.id}) }}">
+                    <img src="http://lorempixel.com/200/400" alt="Film" class="img-thumbnail">
+                    <span class="card-title">{{ film.title }}</span>
+                </a>
+            {% endfor %}
+        </div>
+    {% endblock %}
 
